@@ -85,6 +85,10 @@ nextBtn.addEventListener('click', function(){
 })
 
 randomBtn.addEventListener('click', function(){
-  currentIndex = Math.floor(Math.random() * reviews.length);
+  let randomNewIndex = Math.floor(Math.random() * reviews.length);
+  while (currentIndex === randomNewIndex) {
+    randomNewIndex = Math.floor(Math.random() * reviews.length);
+  }
+  currentIndex = randomNewIndex
   updateUser(currentIndex);
 })
