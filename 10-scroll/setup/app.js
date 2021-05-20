@@ -24,6 +24,27 @@ navToggle.addEventListener('click', function() {
 })
 
 // ********** fixed navbar ************
+const navBar = document.getElementById('nav');
+const topLink = document.querySelector('.top-link');
 
+window.addEventListener('scroll', function() {
+  const scrollHeight = window.pageYOffset;
+  const navBarHeight = navBar.getBoundingClientRect().height;
+  if (scrollHeight > navBarHeight) {
+    navBar.classList.add('fixed-nav');
+    // topLink.classList.add('show-link');
+  } else {
+    navBar.classList.remove('fixed-nav');
+    // topLink.classList.remove('show-link');
+  }
+
+// how instructor revealed button in video, 500 is arbitrary figure
+  if (scrollHeight > 500) {
+    topLink.classList.add('show-link');
+  } else {
+    topLink.classList.remove('show-link');
+  }
+
+})
 // ********** smooth scroll ************
 // select links
